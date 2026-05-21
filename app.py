@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'school_db'
 
 app.config['JWT_SECRET_KEY'] = 'secretkey'
@@ -76,7 +76,7 @@ def add_student():
         cur = mysql.connection.cursor()
 
         query = """
-        INSERT INTO students(name, course, age)
+        INSERT INTO studebts(name, course, age)
         VALUES(%s, %s, %s)
         """
 
@@ -107,7 +107,7 @@ def get_students():
 
         cur = mysql.connection.cursor()
 
-        cur.execute("SELECT * FROM students")
+        cur.execute("SELECT * FROM studebts")
 
         rows = cur.fetchall()
 
